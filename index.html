@@ -577,6 +577,119 @@
         margin-top: 10px;
       }
 
+      /* --- AI Toolkit Section --- */
+      .ai-highlight {
+        padding: 32px;
+        border-radius: 20px;
+        border: 1px solid rgba(99, 102, 241, 0.12);
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.04), rgba(34, 211, 238, 0.02));
+        backdrop-filter: blur(12px);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .ai-highlight::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--accent),
+          var(--accent-cyan),
+          transparent
+        );
+      }
+
+      .ai-intro {
+        font-size: 15px;
+        color: var(--text-secondary);
+        line-height: 1.8;
+        margin-bottom: 28px;
+        max-width: 800px;
+      }
+
+      .ai-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 16px;
+      }
+
+      .ai-card {
+        padding: 24px;
+        border-radius: 14px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.02);
+        transition: all 0.35s ease;
+      }
+
+      .ai-card:hover {
+        border-color: rgba(99, 102, 241, 0.2);
+        background: rgba(99, 102, 241, 0.04);
+        transform: translateY(-3px);
+      }
+
+      .ai-card-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        margin-bottom: 14px;
+        background: rgba(99, 102, 241, 0.08);
+        border: 1px solid rgba(99, 102, 241, 0.12);
+      }
+
+      .ai-card-title {
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        letter-spacing: -0.2px;
+      }
+
+      .ai-card-desc {
+        font-size: 13px;
+        color: var(--text-secondary);
+        line-height: 1.7;
+      }
+
+      .ai-tools-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 28px;
+      }
+
+      .ai-tool-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 14px;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--text-secondary);
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        transition: all 0.3s ease;
+      }
+
+      .ai-tool-badge:hover {
+        border-color: rgba(99, 102, 241, 0.3);
+        color: var(--text-primary);
+      }
+
+      .ai-tool-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+      }
+
       /* --- Projects --- */
       .projects-grid {
         display: grid;
@@ -959,6 +1072,7 @@
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
           <li><a href="#skills">Skills</a></li>
+          <li><a href="#ai-toolkit">AI</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#education">Education</a></li>
@@ -1122,13 +1236,135 @@
             Team Leadership
             <div class="skill-category">Management</div>
           </div>
+          <div class="skill-card reveal">
+            Cursor AI / Copilot
+            <div class="skill-category">AI Tooling</div>
+          </div>
+          <div class="skill-card reveal">
+            Prompt Engineering
+            <div class="skill-category">AI</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI-Augmented Development -->
+      <section id="ai-toolkit">
+        <div class="section-header reveal">
+          <span class="section-number">02</span>
+          <h2 class="section-title">AI-Augmented Development</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="ai-highlight reveal">
+          <p class="ai-intro">
+            Actively leveraging AI as a force multiplier in day-to-day engineering. From authoring
+            custom Cursor agent rules that enforce codebase conventions automatically, to using
+            LLM-powered code generation for scaffolding, refactoring, and review &mdash; AI is
+            embedded into every phase of my development workflow.
+          </p>
+
+          <div class="ai-grid">
+            <div class="ai-card">
+              <div class="ai-card-icon">&#9881;</div>
+              <div class="ai-card-title">Cursor Agent Rules & Commands</div>
+              <div class="ai-card-desc">
+                Authored project-specific <code>.cursor/rules</code> that enforce architecture,
+                naming conventions, import order, and API patterns. Built custom agent commands for
+                scaffolding components, generating API hooks, and running lint-fix workflows &mdash;
+                turning Cursor into a team-wide copilot.
+              </div>
+            </div>
+
+            <div class="ai-card">
+              <div class="ai-card-icon">&#9889;</div>
+              <div class="ai-card-title">Prompt Engineering & Context Design</div>
+              <div class="ai-card-desc">
+                Designed system prompts, few-shot examples, and structured context windows for LLMs
+                to produce production-grade TypeScript, React components, and NestJS services. Used
+                techniques like chain-of-thought reasoning and retrieval-augmented generation (RAG)
+                patterns.
+              </div>
+            </div>
+
+            <div class="ai-card">
+              <div class="ai-card-icon">&#128269;</div>
+              <div class="ai-card-title">AI-Assisted Code Review & Refactoring</div>
+              <div class="ai-card-desc">
+                Integrated AI into PR review workflows to catch anti-patterns, suggest performance
+                improvements, and auto-generate test cases. Used Cursor agent mode for large-scale
+                refactors across hundreds of files with context-aware transformations.
+              </div>
+            </div>
+
+            <div class="ai-card">
+              <div class="ai-card-icon">&#128640;</div>
+              <div class="ai-card-title">Agentic Workflows & MCP</div>
+              <div class="ai-card-desc">
+                Built agentic development workflows using Model Context Protocol (MCP) servers,
+                enabling AI agents to interact with Figma designs, browser automation, and file
+                systems. Orchestrated multi-step autonomous tasks with subagent delegation and
+                structured tool use.
+              </div>
+            </div>
+
+            <div class="ai-card">
+              <div class="ai-card-icon">&#128736;</div>
+              <div class="ai-card-title">Custom Skills & Project Intelligence</div>
+              <div class="ai-card-desc">
+                Created reusable AI skill files for React patterns, API conventions, store
+                architecture, and UI design system rules. These skills provide persistent,
+                project-aware guidance that accelerates onboarding and ensures consistency across
+                teams.
+              </div>
+            </div>
+
+            <div class="ai-card">
+              <div class="ai-card-icon">&#128202;</div>
+              <div class="ai-card-title">LLM-Powered Productivity</div>
+              <div class="ai-card-desc">
+                Using AI for rapid prototyping, data modeling, writing migration scripts, generating
+                Orval API specs, building test suites, and debugging complex production issues
+                &mdash; cutting development cycles by 40-60% on routine tasks.
+              </div>
+            </div>
+          </div>
+
+          <div class="ai-tools-list">
+            <span class="ai-tool-badge"
+              ><span class="ai-tool-dot" style="background: #6366f1"></span>Cursor IDE</span
+            >
+            <span class="ai-tool-badge"
+              ><span class="ai-tool-dot" style="background: #22d3ee"></span>Claude / GPT-4</span
+            >
+            <span class="ai-tool-badge"
+              ><span class="ai-tool-dot" style="background: #a78bfa"></span>GitHub Copilot</span
+            >
+            <span class="ai-tool-badge"
+              ><span class="ai-tool-dot" style="background: #f472b6"></span>Cursor Agent Rules</span
+            >
+            <span class="ai-tool-badge"
+              ><span class="ai-tool-dot" style="background: #34d399"></span>MCP Servers</span
+            >
+            <span class="ai-tool-badge"
+              ><span class="ai-tool-dot" style="background: #fbbf24"></span>Prompt Engineering</span
+            >
+            <span class="ai-tool-badge"
+              ><span class="ai-tool-dot" style="background: #fb923c"></span>RAG Patterns</span
+            >
+            <span class="ai-tool-badge"
+              ><span class="ai-tool-dot" style="background: #60a5fa"></span>Agentic Workflows</span
+            >
+            <span class="ai-tool-badge"
+              ><span class="ai-tool-dot" style="background: #f87171"></span>AI Code Review</span
+            >
+          </div>
         </div>
       </section>
 
       <!-- Experience -->
       <section id="experience">
         <div class="section-header reveal">
-          <span class="section-number">02</span>
+          <span class="section-number">03</span>
           <h2 class="section-title">Experience</h2>
           <div class="section-line"></div>
         </div>
@@ -1388,7 +1624,7 @@
       <!-- Projects -->
       <section id="projects">
         <div class="section-header reveal">
-          <span class="section-number">03</span>
+          <span class="section-number">04</span>
           <h2 class="section-title">Projects</h2>
           <div class="section-line"></div>
         </div>
@@ -1477,7 +1713,7 @@
       <!-- Education -->
       <section id="education">
         <div class="section-header reveal">
-          <span class="section-number">04</span>
+          <span class="section-number">05</span>
           <h2 class="section-title">Education</h2>
           <div class="section-line"></div>
         </div>
