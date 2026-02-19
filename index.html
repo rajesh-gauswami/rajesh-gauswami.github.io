@@ -638,6 +638,91 @@
         color: var(--accent-cyan);
       }
 
+      /* --- Profile Avatar --- */
+      .hero-top {
+        display: flex;
+        align-items: flex-start;
+        gap: 48px;
+        margin-bottom: 32px;
+      }
+
+      .hero-content {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .avatar-wrapper {
+        flex-shrink: 0;
+        position: relative;
+        width: 160px;
+        height: 160px;
+      }
+
+      .avatar-wrapper::before {
+        content: '';
+        position: absolute;
+        inset: -3px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent), var(--accent-cyan), var(--accent));
+        background-size: 200% 200%;
+        animation: avatarGlow 4s ease-in-out infinite;
+      }
+
+      .avatar-wrapper::after {
+        content: '';
+        position: absolute;
+        inset: -12px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(34, 211, 238, 0.1));
+        filter: blur(16px);
+        z-index: -1;
+        animation: avatarGlow 4s ease-in-out infinite;
+      }
+
+      @keyframes avatarGlow {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      .avatar-img {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--bg-primary);
+        display: block;
+      }
+
+      @media (max-width: 768px) {
+        .hero-top {
+          flex-direction: column-reverse;
+          align-items: center;
+          gap: 28px;
+          text-align: center;
+        }
+        .avatar-wrapper {
+          width: 130px;
+          height: 130px;
+        }
+        .hero-badge {
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .hero-description {
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .hero-contact {
+          justify-content: center;
+        }
+      }
+
       /* --- Reveal animation --- */
       .reveal {
         opacity: 0;
@@ -754,22 +839,34 @@
     <div class="container">
       <!-- Hero -->
       <section class="hero" id="about">
-        <div class="reveal">
-          <div class="hero-badge">
-            <span class="pulse"></span>
-            Available for opportunities
+        <div class="hero-top">
+          <div class="hero-content">
+            <div class="reveal">
+              <div class="hero-badge">
+                <span class="pulse"></span>
+                Available for opportunities
+              </div>
+            </div>
+
+            <h1 class="reveal reveal-delay-1">
+              <span class="gradient-text">Rajesh Gauswami</span>
+            </h1>
+
+            <p class="hero-description reveal reveal-delay-2">
+              Team Lead & Senior Full Stack Developer with 8+ years of experience building scalable
+              systems, modernizing legacy platforms, and leading products from the engineering side
+              in fully remote environments.
+            </p>
+          </div>
+
+          <div class="avatar-wrapper reveal reveal-delay-1">
+            <img
+              class="avatar-img"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0eMvGZqFO1WEgBKc9AA3RAPT94NbMkvlsPg&s"
+              alt="Rajesh Gauswami"
+            />
           </div>
         </div>
-
-        <h1 class="reveal reveal-delay-1">
-          <span class="gradient-text">Rajesh Gauswami</span>
-        </h1>
-
-        <p class="hero-description reveal reveal-delay-2">
-          Team Lead & Senior Full Stack Developer with 8+ years of experience building scalable
-          systems, modernizing legacy platforms, and leading products from the engineering side in
-          fully remote environments.
-        </p>
 
         <div class="hero-contact reveal reveal-delay-3">
           <span>
